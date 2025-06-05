@@ -1,11 +1,21 @@
 let dom = document.querySelector('#root');
 let element = React.createElement('div', {}, [
   React.createElement('h2', {}, "Hello!"),
-  React.createElement('h3', {}, "React sample page.!"),
-  React.createElement('ul', {}, [
-    React.createElement('li', {}, "First item."),
-    React.createElement('li', {}, "Second item."),
-    React.createElement('li', {}, "Third item.")
+  React.createElement('h3', {
+    className: 'alert alert-primary'
+  }, "React ｻﾝﾌﾟﾙ ㌻!"),
+  React.createElement('ul', {
+    className: 'list-group'
+  }, [
+    React.createElement('li', {
+      className: 'list-group-item'
+    }, "First ｱｲﾃﾑ."),
+    React.createElement('li', {
+      className: 'list-group-item'
+    }, "Second ｱｲﾃﾑ."),
+    React.createElement('li', {
+      className: 'list-group-item'
+    }, "Third ｱｲﾃﾑ.")
   ])
 ]);
 ReactDOM.render(element, dom);
