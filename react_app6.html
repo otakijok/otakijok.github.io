@@ -18,30 +18,30 @@
   <script type="text/babel">
   const dom = document.querySelector('#root');
   const title = 'React page.';
-  const message = 'メッセージを表示します。';
+  let message = 'お名前をどうぞ。';
 
-  const printMsg = (msg, size, color) => {
-    const style = {
-      fontSize: size + 'pt',
-      fontWeight: '700',
-      color: color,
-      border: '1px solid ' + color
-    };
-    return <p style={style}>{msg}</p>;
+  const doChange = (event) => {
+    message = 'こんにちは、' + event.target.value + 'さん!!';
   };
 
-  const el = (
-    <div>
-      <h4>{title}</h4>
-      <h6>{message}</h6>
-      <div className="alert alert-secondary mt-3">
-        {printMsg('最初のメッセージ', 36, '#fff')}
-        {printMsg('次のメッセージ', 24, '#aaa')}
-        {printMsg('最後のメッセージ', 12, '#666')}
+  const doAction = (event) => {
+    let el = (
+      <div>
+        <h4>{title}</h4>
+        <h6>{message}</h6>
+        <div className="aleret alert-primary">
+          <div className="form-group">
+            <label>Input:</label>
+            <input type="text" className="form-control" onChange={doChange} />
+          </div>
+          <button className="btn btn-primary" onClick={doAction}>クリック</button>
+        </div>
       </div>
-    </div>
-  );
-  ReactDOM.render(el, dom);
+    );
+    ReactDOM.render(el, dom);
+  };
+
+  doAction();
   </script>
 </body>
 

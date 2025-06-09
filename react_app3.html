@@ -19,26 +19,24 @@
   const dom = document.querySelector('#root');
   const title = 'React page.';
   const message = 'メッセージを表示します。';
+  const content_true = '※これが、trueのときに表示されるメッセージです。';
+  const content_false = '※これは、falseのときの表示です。';
 
-  const printMsg = (msg, size, color) => {
-    const style = {
-      fontSize: size + 'pt',
-      fontWeight: '700',
-      color: color,
-      border: '1px solid ' + color
-    };
-    return <p style={style}>{msg}</p>;
-  };
+  const flg = false;
 
   const el = (
     <div>
       <h4>{title}</h4>
       <h6>{message}</h6>
-      <div className="alert alert-secondary mt-3">
-        {printMsg('最初のメッセージ', 36, '#fff')}
-        {printMsg('次のメッセージ', 24, '#aaa')}
-        {printMsg('最後のメッセージ', 12, '#666')}
-      </div>
+      {flg ?
+        <div className="alert alert-secondary mt-3">
+          <p>{content_true}</p>
+        </div>
+      :
+        <div className="alert alert-secondary mt-3">
+          <p>{content_false}</p>
+        </div>
+      }
     </div>
   );
   ReactDOM.render(el, dom);

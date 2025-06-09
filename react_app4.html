@@ -19,26 +19,36 @@
   const dom = document.querySelector('#root');
   const title = 'React page.';
   const message = 'メッセージを表示します。';
-
-  const printMsg = (msg, size, color) => {
-    const style = {
-      fontSize: size + 'pt',
-      fontWeight: '700',
-      color: color,
-      border: '1px solid ' + color
-    };
-    return <p style={style}>{msg}</p>;
-  };
+  const data = [
+    {name: 'Taro', mail: 'taro@yamada', age: 45},
+    {name: 'Hanako', mail: 'hanako@flower', age: 37},
+    {name: 'Sachiko', mail: 'sachiko@happy', age: 29},
+    {name: 'Jiro', mail: 'jiro@change', age: 18},
+    {name: 'Kumi', mail: 'kumi@class', age: 56}
+  ];
 
   const el = (
     <div>
       <h4>{title}</h4>
       <h6>{message}</h6>
-      <div className="alert alert-secondary mt-3">
-        {printMsg('最初のメッセージ', 36, '#fff')}
-        {printMsg('次のメッセージ', 24, '#aaa')}
-        {printMsg('最後のメッセージ', 12, '#666')}
-      </div>
+      <table className="table table-striped mt-4">
+        <thead className="thead-dark">
+          <tr>
+            <th>名前</th>
+            <th>メール</th>
+            <th>年齢</th>
+          </tr>
+        </thead>
+        <tbody>
+        {data.map(value => (
+          <tr>
+            <td>{value.name}</td>
+            <td>{value.mail}</td>
+            <td>{value.age}</td>
+          </tr>
+        ))}
+        </tbody>
+     </table>
     </div>
   );
   ReactDOM.render(el, dom);
